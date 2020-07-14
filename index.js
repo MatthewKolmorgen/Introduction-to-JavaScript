@@ -1,31 +1,59 @@
 /************************************************************** Task 1: Warm-up! **************************************************************/
 //Task a: declare a variable called votingAge, console log true if age > 18 (no function required)
+let age = 29
+let votingAge = 18;
 
-
+if (age > votingAge) {
+    console.log("true");
+}
 
 
 
 //Task b: declare a variable and then use a conditional to change the value of that variable based on the value assigned to a second variable (no function required)
+let lightSwitch = "On";
+let lightOn = false;
+
+if (lightOn === false) {
+    lightSwitch = "Off";
+}
+console.log(lightSwitch);
+
+
+
+
 
 
 
 
 
 //Task c: Convert string ("1999") to integer (1999)  (no function required) // hint look up the Number method
-
-
-
+let number = "1999"
+Number(new Date("1999"));
+console.log(number) 
 
 
 //Task d: Write a function to multiply a*b 
 
+// let a = 999;
+// let b = 200;
+// multipliedNumber = a * b;
+// console.log(multipliedNumber);
 
+function multiply(a,b) {
+    return(a * b);
+}
+console.log(multiply(999,200))
 
 
 
 /************************************************************** Task 2 **************************************************************/
 //Age in Dog years
 //write a function that takes your age and returns it to you in dog years - they say that 1 human year is equal to seven dog years 
+
+function dogYears(dogYears,age){
+    return(dogYears * age);
+  }
+  console.log(dogYears(7,29));
 
 
 
@@ -49,8 +77,20 @@
 
 // when you are finished invoke your function with the weight of 15 lbs and the age of 1 year - if your calculations are correct your result should be 0.44999999999999996
   
-
-
+function dogFeeder(weight, age) {
+    if (age >= 1) {
+        if (weight <= 5) {
+            return(weight * 5);
+        } else if (weight <= 10) {
+            return(weight * .04);
+        } else if (weight <= 15) {
+            return (weight * .03);
+        } else {
+            return (wieght * .02);
+        }
+    } 
+}
+console.log(dogFeeder(15, 1));
 
 
 /************************************************************** Task 4 **************************************************************/
@@ -60,8 +100,9 @@
 // use math.random to determine the computers choice 
 // hint while you can complete this with only conditionals based on strings it may help to equate choice to a number 
 
-  
-  
+
+
+
 
 /************************************************************** Task 5 **************************************************************/
 //Metric Converter
