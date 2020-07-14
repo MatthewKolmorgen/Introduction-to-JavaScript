@@ -70,8 +70,7 @@ console.log(dogYears(7,29));
 // 4 - 7 months 5% of their body weight 
 // 7 - 12 months 4% of their body weight
 
-// when you are finished invoke your function with the weight of 15 lbs and the age of 1 year - if your calculations are correct your result should be 0.44999999999999996
-  
+// when you are finished invoke your function with the weight of 15 lbs and the age of 1 year - if your calculations are correct your result should be 0.44999999999999996 
 function dogFeeder(weight, age) {
     if (age >= 1) {
         if (weight <= 5) {
@@ -103,32 +102,62 @@ console.log(dogFeeder(15, 1));
 // use math.random to determine the computers choice 
 // hint while you can complete this with only conditionals based on strings it may help to equate choice to a number 
 
-function game() {
-    let computerSelection = Math.random();
-    if(computerSelection < .34) {
-        compupterSelection = "Rock";
-    } else if (compupterSelection <= .67) {
-        computerSelection = "Paper";
+function rockPapersSissors(shoot) {
+    let phrase = "It's a draw!";
+  
+    let compChoice = Math.random();
+  
+    if (compChoice <= 0.33) {
+      compChoice = "rock";
+    } else if (compChoice > 0.33 && compChoice <= 0.66) {
+      compChoice = "scissors";
     } else {
-        computerSelection = "Scissors";
+      compChoice = "paper";
     }
-    
-}
-// console.log(game(computerSelection));
-
+  
+    if (compChoice === "rock") {
+      if (shoot === "paper") {
+        phrase = "You win";
+      } else if (shoot === "scissors") {
+        phrase = "You lose";
+      }
+    }
+    if (compChoice === "scissors") {
+      if (shoot === "rock") {
+        phrase = "You win!";
+      } else if (shoot === "paper") {
+        phrase = "You lose!";
+      }
+    }
+    if (compChoice === "paper") {
+      if (shoot === "rock") {
+        phrase = "You lose!";
+      } else if (shoot === "scissors") {
+        phrase = "You win!";
+      }
+    }
+    return phrase;
+  }
+  
+  rockPapersSissors("paper");
 
 
 
 /************************************************************** Task 5 **************************************************************/
 //Metric Converter
 //a. KM to Miles - should take the number of kilometers and convert it to the equal number of miles
-
+function convert(a) {
+    return a * 0.62;
+}
+console
 
 
 
 
 //b. Feet to CM - should take the number of feet and convert it to the equal number of centimeters
-  
+function feetToCM(a) {
+    return a * 30.48;
+}
 
 
 
@@ -137,7 +166,14 @@ function game() {
 // 99 bottles of soda on the wall
 // create a function called annoyingSong
 // the function should take a starting number as an argument and count down - at each iteration it should log (number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall`
-  
+function annoyingSong(a) {
+    for (let i = a; i > 0; i--) {
+      console.log(
+        `${i} bottles of soda on the walll, ${i} bottles of soda, take one pass it around ${i--} bottlles of soda on the wall`
+      );
+    }
+  }
+  console.log(annoyingSong(99));
 
 
 
@@ -150,7 +186,21 @@ function game() {
 //70s should be Cs 
 //60s should be D 
 //and anything below 60 should be F
+function gradeCalc(a) {
+    if (a >= 90 && a <= 100) {
+      return "A";
+    } else if (a >= 80 && a < 89) {
+      return "B";
+    } else if (a >= 70 && a < 79) {
+      return "C";
+    } else if (a >= 60 && a < 69) {
+      return "D";
+    } else {
+      return "F";
+    }
+  }
   
+  console.log(gradeCalc(85));
 
   
   
@@ -159,7 +209,21 @@ function game() {
 //Create a function that counts the number of vowels within a string. It should handle both capitalized and uncapitalized vowels.
 // Hint - you may need to study tomorrow's traning kit on arrays 
 // try looking up the .includes() method
+const vowels = ["a", "e", "i", "o", "u"];
 
+function countVowels(str) {
+  let numVowels = 0;
+  let lowerStr = str.toLowerCase();
+
+  for (let i = 0; i < str.length; i++) {
+    if (vowels.includes(lowerStr[i])) {
+      numVowels++;
+    }
+  }
+  return numVowels;
+}
+
+console.log(countVowels("Hello WOrld"));
 
 
 
@@ -168,7 +232,46 @@ function game() {
 //Take Rock, Paper, Sissors further
 //update your rock papers sissors code below to take a prompt from a user using the window object
 
+function rockPapersSissors() {
+    let shoot = prompt("Rock, Paper, or Scissors");
+    let phrase = "It's a draw!";
+  
+    let compChoice = Math.random();
+  
+    if (compChoice <= 0.33) {
+      compChoice = "rock";
+    } else if (compChoice > 0.33 && compChoice <= 0.66) {
+      compChoice = "scissors";
+    } else {
+      compChoice = "paper";
+    }
 
-
-
-
+    if (shoot !== "Rock" || shoot !== "Paper" || shoot !== "Scissors") {
+        return "Pick from Rock Paper or Scissors";
+    }
+  
+    if (compChoice === "rock") {
+      if (shoot === "paper") {
+        phrase = "You win";
+      } else if (shoot === "scissors") {
+        phrase = "You lose";
+      }
+    }
+    if (compChoice === "scissors") {
+      if (shoot === "rock") {
+        phrase = "You win!";
+      } else if (shoot === "paper") {
+        phrase = "You lose!";
+      }
+    }
+    if (compChoice === "paper") {
+      if (shoot === "rock") {
+        phrase = "You lose!";
+      } else if (shoot === "scissors") {
+        phrase = "You win!";
+      }
+    }
+    return phrase;
+  }
+  
+  rockPapersSissors("paper");
